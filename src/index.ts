@@ -30,7 +30,7 @@ function addEnvPath(name: string, value: string) {
 
 const TOKEN = getInput("token");
 const AUTH = `token ${TOKEN}`;
-const MANIFEST_REPO_OWNER = "eWaterCycle";
+const MANIFEST_REPO_OWNER = "brian-keebo";
 const MANIFEST_REPO_NAME = "grpc-versions";
 const MANIFEST_REPO_BRANCH = "main";
 
