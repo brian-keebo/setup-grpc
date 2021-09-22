@@ -7,6 +7,7 @@ import {
   setFailed,
   exportVariable,
   addPath,
+  debug
 } from "@actions/core";
 import { exec } from "@actions/exec";
 import { mkdirP } from "@actions/io";
@@ -38,12 +39,16 @@ async function findReleaseFromManifest(
   semanticVersionSpec: string,
   architecture: string
 ): Promise<IToolRelease | undefined> {
+  debug(`Owner: ${MANIFEST_REPO_OWNER}`);
+  debug(`Repo: ${MANIFEST_REPO_NAME}`);
+  debug(`Branch: ${MANIFEST_REPO_BRANCH}`);
   const manifest: IToolRelease[] = await getManifestFromRepo(
     MANIFEST_REPO_OWNER,
     MANIFEST_REPO_NAME,
     AUTH,
     MANIFEST_REPO_BRANCH
   );
+  debug(`Manifest: ${manifest}`);
   return await findFromManifest(
     semanticVersionSpec,
     true,
